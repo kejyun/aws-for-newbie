@@ -1,0 +1,44 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Cloudflare CNAME to Cloudfront</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/cloudflare-cname-to-cloudfront/</link>
+    <description>Recent content in Cloudflare CNAME to Cloudfront on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/cloudflare-cname-to-cloudfront/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Cloudflare CNAME to Cloudfront</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/cloudfront/cname/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/cloudfront/cname/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;cloudflare-cname-to-cloudfront&#34;&gt;Cloudflare CNAME to Cloudfront&lt;/h1&gt;
+&lt;p&gt;在 &lt;a href=&#34;https://console.aws.amazon.com/cloudfront/home&#34;&gt;AWS CloudFront Management Console&lt;/a&gt; 中可以看到有的 Cloudfront 設定，&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudfront-cname-list.png&#34; alt=&#34;Cloudfront CNAME list&#34;&gt;&lt;/p&gt;
+&lt;p&gt;進去設定後，可以看到 &lt;code&gt;Alternate Domain Names (CNAMEs)&lt;/code&gt; 是空的，點選 Edit 按鈕可以編輯&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudfront-edit-button.png&#34; alt=&#34;Cloudfront CNAME Edit button&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在編輯畫面中，可以把您想設定的 CNAME 清單寫上去，要多少個就寫多少個&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudfront-edit-cname.png&#34; alt=&#34;Cloudfront CNAME Edit&#34;&gt;&lt;/p&gt;
+&lt;p&gt;設定完成後到 Cloudflare 設定 CNAME 到 Cloudfront 就可以正常存取了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/aws/comments/4ina9r/cloudfront_cdn_cloudflare_dns_cdn/&#34;&gt;Cloudfront CDN + Cloudflare DNS (+CDN) ? : aws&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

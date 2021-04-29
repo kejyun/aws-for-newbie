@@ -1,0 +1,38 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Serverless Image Resizing</title>
+    <link>https://aws-for-newbie.kejyun.com/tags/serverless-image-resizing/</link>
+    <description>Recent content in Serverless Image Resizing on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/serverless-image-resizing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Serverless Image Resizing 圖片裁切</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/services/serverless-image-resizing/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/services/serverless-image-resizing/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/blogs/compute/resize-images-on-the-fly-with-amazon-s3-aws-lambda-and-amazon-api-gateway/&#34;&gt;Resize Images on the Fly with Amazon S3, AWS Lambda, and Amazon API Gateway | AWS Compute Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sketchboard.io/blog/serverless-image-resize-with-amazon-lambda&#34;&gt;Serverless image resize with Amazon Lambda function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dsdshcym.github.io/blog/2017/10/31/build-an-image-resizing-microservice-on-aws-lambda/&#34;&gt;Build an Image Resizing Microservice on AWS Lambda - dsdshome&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

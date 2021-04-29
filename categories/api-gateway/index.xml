@@ -1,0 +1,81 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – API Gateway</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/api-gateway/</link>
+    <description>Recent content in API Gateway on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/api-gateway/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 快取</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/api-gateway/cache/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/api-gateway/cache/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;設定快取&#34;&gt;設定快取&lt;/h2&gt;
+&lt;p&gt;在 API Gateway 的 &lt;code&gt;Stage Editor&lt;/code&gt;，在 &lt;code&gt;Setting&lt;/code&gt; 的頁籤中點選 &lt;code&gt;Enable API cache&lt;/code&gt; 就可以看到快取的相關設定&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/api-getway-cache.png&#34; alt=&#34;API Gateway Cache&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/api-gateway-caching.html&#34;&gt;启用 API 缓存以增强响应能力 - Amazon API Gateway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/apigateway/latest/developerguide/api-gateway-caching.html&#34;&gt;Enable API Caching to Enhance Responsiveness - Amazon API Gateway&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: API Gateway</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/api-gateway/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/api-gateway/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;收費方式&#34;&gt;收費方式&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;請求(Request) 費用&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1,000,000 Request / $4.25&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;流量費用&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前 10 TB 0.14 USD/GB&lt;/li&gt;
+&lt;li&gt;下一個 40 TB 0.135 USD/GB&lt;/li&gt;
+&lt;li&gt;下一個 100 TB 0.13 USD/GB&lt;/li&gt;
+&lt;li&gt;下一個 350 TB 0.12 USD/GB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;快取費用&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;快取記憶體大小 / 美元（每小時）&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0.5 G / 0.020 USD / per hour&lt;/li&gt;
+&lt;li&gt;1.6 G / 0.038 USD / per hour&lt;/li&gt;
+&lt;li&gt;6.1 G / 0.200 USD / per hour&lt;/li&gt;
+&lt;li&gt;13.5 G / 0.250 USD / per hour&lt;/li&gt;
+&lt;li&gt;28.4 G / 0.500 USD / per hour&lt;/li&gt;
+&lt;li&gt;58.2 G / 1.000 USD / per hour&lt;/li&gt;
+&lt;li&gt;118.0 G / 1.900 USD / per hour&lt;/li&gt;
+&lt;li&gt;237.0 G / 3.800 USD / per hour&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/api-gateway/pricing/&#34;&gt;Amazon API Gateway – 定價&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

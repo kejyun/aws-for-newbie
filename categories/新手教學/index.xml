@@ -29,6 +29,140 @@
     </item>
     
     <item>
+      <title>Docs: Auto Scaling 自動部署程式</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/auto-scaling/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/auto-scaling/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;auto-scaling-自動部署程式&#34;&gt;Auto Scaling 自動部署程式&lt;/h1&gt;
+&lt;h2 id=&#34;建立-iam-角色-role&#34;&gt;建立 IAM 角色 (Role)&lt;/h2&gt;
+&lt;h3 id=&#34;設定角色名稱&#34;&gt;設定角色名稱&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-setting-iam-roles-name.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;設定角色類型&#34;&gt;設定角色類型&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-setting-iam-roles-type.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定-code-deploy&#34;&gt;設定 Code Deploy&lt;/h2&gt;
+&lt;h3 id=&#34;選擇部署機器類型&#34;&gt;選擇部署機器類型&lt;/h3&gt;
+&lt;p&gt;選擇 Auto Scaling Group，當 Auto Scaling 觸發時，則會自動執行程式部署&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-create-deployment-group-select-auto-sacling-group.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;選擇-deploy-iam-role&#34;&gt;選擇 Deploy IAM Role&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-create-deployment-group-select-iam-role.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ec2-plugin&#34;&gt;EC2 Plugin&lt;/h2&gt;
+&lt;p&gt;請先安裝 &lt;a href=&#34;../../ec2/cli/&#34;&gt;AWS CLI&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安裝-codedeploy-agent&#34;&gt;安裝 CodeDeploy Agent&lt;/h3&gt;
+&lt;h2 id=&#34;ubuntu-1604&#34;&gt;Ubuntu 16.04&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install ruby
+sudo apt-get install wget
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /home/ubuntu
+wget https://bucket-name.s3.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Region name&lt;/th&gt;
+&lt;th&gt;bucket-name replacement&lt;/th&gt;
+&lt;th&gt;Region identifier&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;US East (Ohio)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-east-2&lt;/td&gt;
+&lt;td&gt;us-east-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;US East (N. Virginia)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-east-1&lt;/td&gt;
+&lt;td&gt;us-east-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;US West (N. California)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-west-1&lt;/td&gt;
+&lt;td&gt;us-west-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;US West (Oregon)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-west-2&lt;/td&gt;
+&lt;td&gt;us-west-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Canada (Central)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ca-central-1&lt;/td&gt;
+&lt;td&gt;ca-central-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (Ireland)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-west-1&lt;/td&gt;
+&lt;td&gt;eu-west-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (London)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-west-2&lt;/td&gt;
+&lt;td&gt;eu-west-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (Paris)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-west-3&lt;/td&gt;
+&lt;td&gt;eu-west-3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (Frankfurt)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-central-1&lt;/td&gt;
+&lt;td&gt;eu-central-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Tokyo)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-northeast-1&lt;/td&gt;
+&lt;td&gt;ap-northeast-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Seoul)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-northeast-2&lt;/td&gt;
+&lt;td&gt;ap-northeast-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Singapore)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-southeast-1&lt;/td&gt;
+&lt;td&gt;ap-southeast-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Sydney)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-southeast-2&lt;/td&gt;
+&lt;td&gt;ap-southeast-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Mumbai)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-south-1&lt;/td&gt;
+&lt;td&gt;ap-south-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;South America (São Paulo)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-sa-east-1&lt;/td&gt;
+&lt;td&gt;sa-east-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;測試-codedeploy-agent&#34;&gt;測試 CodeDeploy Agent&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service codedeploy-agent status
+sudo service codedeploy-agent start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安裝完 Agent 之後，AWS 才可以透過 Agent 自動部署程式&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-ubuntu.html&#34;&gt;Install or reinstall the AWS CodeDeploy agent for Ubuntu Server - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names&#34;&gt;AWS CodeDeploy Resource Kit Reference - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-run-agent-install.html&#34;&gt;Install or Reinstall the AWS CodeDeploy Agent - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/cli/latest/userguide/installing.html#install-bundle-other-os&#34;&gt;Installing the AWS Command Line Interface - AWS Command Line Interface&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: CLI</title>
       <link>https://aws-for-newbie.kejyun.com/docs/ec2/cli/</link>
       <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
@@ -53,6 +187,50 @@ $ sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/cli/latest/userguide/installing.html#install-bundle-other-os&#34;&gt;Installing the AWS Command Line Interface - AWS Command Line Interface&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Cloudflare CNAME to Cloudfront</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/cloudfront/cname/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/cloudfront/cname/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;cloudflare-cname-to-cloudfront&#34;&gt;Cloudflare CNAME to Cloudfront&lt;/h1&gt;
+&lt;p&gt;在 &lt;a href=&#34;https://console.aws.amazon.com/cloudfront/home&#34;&gt;AWS CloudFront Management Console&lt;/a&gt; 中可以看到有的 Cloudfront 設定，&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudfront-cname-list.png&#34; alt=&#34;Cloudfront CNAME list&#34;&gt;&lt;/p&gt;
+&lt;p&gt;進去設定後，可以看到 &lt;code&gt;Alternate Domain Names (CNAMEs)&lt;/code&gt; 是空的，點選 Edit 按鈕可以編輯&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudfront-edit-button.png&#34; alt=&#34;Cloudfront CNAME Edit button&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在編輯畫面中，可以把您想設定的 CNAME 清單寫上去，要多少個就寫多少個&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudfront-edit-cname.png&#34; alt=&#34;Cloudfront CNAME Edit&#34;&gt;&lt;/p&gt;
+&lt;p&gt;設定完成後到 Cloudflare 設定 CNAME 到 Cloudfront 就可以正常存取了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/aws/comments/4ina9r/cloudfront_cdn_cloudflare_dns_cdn/&#34;&gt;Cloudfront CDN + Cloudflare DNS (+CDN) ? : aws&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Serverless Image Resizing 圖片裁切</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/services/serverless-image-resizing/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/services/serverless-image-resizing/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/blogs/compute/resize-images-on-the-fly-with-amazon-s3-aws-lambda-and-amazon-api-gateway/&#34;&gt;Resize Images on the Fly with Amazon S3, AWS Lambda, and Amazon API Gateway | AWS Compute Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sketchboard.io/blog/serverless-image-resize-with-amazon-lambda&#34;&gt;Serverless image resize with Amazon Lambda function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dsdshcym.github.io/blog/2017/10/31/build-an-image-resizing-microservice-on-aws-lambda/&#34;&gt;Build an Image Resizing Microservice on AWS Lambda - dsdshome&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -390,6 +568,27 @@ tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;
     </item>
     
     <item>
+      <title>Docs: 快取</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/api-gateway/cache/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/api-gateway/cache/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;設定快取&#34;&gt;設定快取&lt;/h2&gt;
+&lt;p&gt;在 API Gateway 的 &lt;code&gt;Stage Editor&lt;/code&gt;，在 &lt;code&gt;Setting&lt;/code&gt; 的頁籤中點選 &lt;code&gt;Enable API cache&lt;/code&gt; 就可以看到快取的相關設定&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/api-getway-cache.png&#34; alt=&#34;API Gateway Cache&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/api-gateway-caching.html&#34;&gt;启用 API 缓存以增强响应能力 - Amazon API Gateway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/apigateway/latest/developerguide/api-gateway-caching.html&#34;&gt;Enable API Caching to Enhance Responsiveness - Amazon API Gateway&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: CLI</title>
       <link>https://aws-for-newbie.kejyun.com/docs/s3/cli/</link>
       <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
@@ -482,6 +681,35 @@ tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;
 &lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonElastiCache/latest/UserGuide/Replication.Redis-RedisCluster.html&#34;&gt;复制：Redis (已禁用集群模式) 与 Redis (已启用集群模式) - Amazon ElastiCache&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonElastiCache/latest/UserGuide/SelectEngine.Uses.html&#34;&gt;选择引擎：Memcached、Redis (已禁用集群模式) 或 Redis (已启用集群模式) - Amazon ElastiCache&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Deploy 標籤群組</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/tag-group/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/tag-group/</guid>
+      <description>
+        
+        
+        &lt;p&gt;除了在 Code Deploy 使用 Auto Scaling 去 Deploy 程式外，也可以使用 &lt;code&gt;標籤（Tag）&lt;/code&gt; 的方式去 Deploy 程式到指定 &lt;code&gt;標籤（Tag）&lt;/code&gt; 的主機。&lt;/p&gt;
+&lt;h2 id=&#34;設定-ec2-主機標籤&#34;&gt;設定 EC2 主機標籤&lt;/h2&gt;
+&lt;p&gt;在主機中設定 EC2 主機的標籤為 &lt;code&gt;CodeDeployInstance&lt;/code&gt; 並給數值為 &lt;code&gt;1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-deployment-group.png&#34; alt=&#34;標籤群組設定&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-code-deploy-群組&#34;&gt;建立 Code Deploy 群組&lt;/h2&gt;
+&lt;p&gt;在 Code Deploy 的 &lt;code&gt;Application &amp;gt; Deployment groups&lt;/code&gt; 中建立 Code Deployment 群組&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment-group.png&#34; alt=&#34;建立 Deployment 群組&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在建立 Code Deployment 群組中的 &lt;code&gt;環境設置（Environment configuration）&lt;/code&gt; 中，選擇 &lt;code&gt;Amazon EC2 instances&lt;/code&gt;，並設定 EC2 主機的標籤為 &lt;code&gt;CodeDeployInstance&lt;/code&gt; 並給數值為 &lt;code&gt;1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-ec2-tag.png&#34; alt=&#34;設定 Deployment 群組 ec2 tag&#34;&gt;&lt;/p&gt;
+&lt;p&gt;取消啟用 Load Balancer&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-cancel-load-balancer.png&#34; alt=&#34;取消設定 Deployment 群組 Load Balancer&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-code-deploy&#34;&gt;建立 Code Deploy&lt;/h2&gt;
+&lt;p&gt;建立 Code Deploy&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment.png&#34; alt=&#34;建立 Deployment&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 Code Deploy 選擇剛剛建立的 Code Deploy 群組&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment-choose-group.png&#34; alt=&#34;建立 Deployment，選擇 Deploy 群組&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -799,6 +1027,76 @@ tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;
     </item>
     
     <item>
+      <title>Docs: 除錯</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/debug/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;s3&#34;&gt;S3&lt;/h2&gt;
+&lt;p&gt;若是把程式放在 S3 的話，記得在 IAM Role 中設定 S3 的存取權限，可以使用 &lt;code&gt;Attach Polocy&lt;/code&gt; 將 S3 的權限加入，或者可以用 &lt;code&gt;Inline Policy&lt;/code&gt; 將權限加入，這樣才可以正常 Deploy&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Statement&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+              &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;s3:Get*&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+              &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;s3:List*&amp;#34;&lt;/span&gt;
+          &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-s3-permission.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;p&gt;若沒有正確的設定權限，則會看到 &lt;code&gt;DownloadBundle&lt;/code&gt; 的 &lt;code&gt;Access Denied&lt;/code&gt; 的訊息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-s3-permission-download-bundle.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-s3-permission-download-bundle-access-denied.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;log&#34;&gt;Log&lt;/h2&gt;
+&lt;p&gt;若要看到操作過程的相關 Log，可以到 EC2 下，找到下列目錄，就可以看到相關的存取 Log&lt;/p&gt;
+&lt;h4 id=&#34;流程紀錄&#34;&gt;流程紀錄&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;less /var/log/aws/codedeploy-agent/codedeploy-agent.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;部署記錄&#34;&gt;部署記錄&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;less /opt/codedeploy-agent/deployment-root/&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;deployment-group-ID&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;deployment-ID&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/logs/scripts.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;deployment-group-ID：由 Code Deploy 產生的 Deploy Group 代號&lt;/li&gt;
+&lt;li&gt;deployment-ID：在產生新的 Deploy 時，會有自己特定的部署編號，會長的像 &lt;code&gt;d-6CTSMH2MK&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-log-deployment-id.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;檢查-code-deploy-版本&#34;&gt;檢查 Code Deploy 版本&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cat /opt/codedeploy-agent/.version
+agent_version: OFFICIAL_1.0-1.1458_deb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;更新-code-deploy-版本&#34;&gt;更新 Code Deploy 版本&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo /opt/codedeploy-agent/bin/install auto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-deployment-failed-because-a-specified-file-already-exists-at-this-location-homeubuntuindexhtml&#34;&gt;The deployment failed because a specified file already exists at this location: /home/ubuntu/index.html&lt;/h2&gt;
+&lt;p&gt;在使用 Auto Scaling 去做 Code Deploy 時，遇到了檔案權限不能寫入的問題&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The deployment failed because a specified file already exists at this location: /home/ubuntu/index.html&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-the-deployment-failed-because-a-specified-file-already-exists-at-this-location.png&#34; alt=&#34;The deployment failed because a specified file already exists at this location&#34;&gt;&lt;/p&gt;
+&lt;p&gt;因為在做 AMI 去 Auto Scaling 時，有做了手動 Code Deploy 的測試，所以在 &lt;code&gt;/home/ubuntu/&lt;/code&gt; 目錄下有建立 Code Deploy 相關的檔案。&lt;/p&gt;
+&lt;p&gt;要解決這個問題，需要把原先在 &lt;code&gt;/home/ubuntu/&lt;/code&gt; 目錄 Code Deploy 檔案先移除，在做 AMI 檔案去 Auto Scaling 就可以了&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Code Deploy 相關檔案&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;codedeploy
+    change_permissions
+    install_dependencies
+appspec.yml
+index.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-ec2-instances.html&#34;&gt;Troubleshoot Instance Issues - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/devops/view-aws-codedeploy-logs-in-amazon-cloudwatch-console/&#34;&gt;View AWS CodeDeploy logs in Amazon CloudWatch console | AWS DevOps Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-deployments.html&#34;&gt;Troubleshoot Deployment Issues - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/codedeploy/latest/userguide/codedeploy-agent.html#codedeploy-agent-supported-versions&#34;&gt;Troubleshoot Deployment Issues - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-update-ubuntu.html](Update the AWS CodeDeploy Agent on Ubuntu Server - AWS CodeDeploy)&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: RDS</title>
       <link>https://aws-for-newbie.kejyun.com/docs/rds/</link>
       <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
@@ -980,6 +1278,53 @@ dualstack.name-123456789.region.elb.amazonaws.com
     </item>
     
     <item>
+      <title>Docs: Simple Email Service (SES)</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ses/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ses/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;驗證寄信-email&#34;&gt;驗證寄信 Email&lt;/h2&gt;
+&lt;p&gt;要使用指定的 Email 寄送信件時，AWS SES 需要驗證此信箱是否為正確的信箱&lt;/p&gt;
+&lt;p&gt;在左側 &lt;code&gt;Identity Management&lt;/code&gt; 選單中，點選 &lt;code&gt;Email Addresses&lt;/code&gt;，在右側頁面點選 &lt;code&gt;Verify a New Email Address&lt;/code&gt; 按鈕，輸入您要用來寄送的 Email，然後點選 &lt;code&gt;Verify This Email Address&lt;/code&gt; 按鈕驗證此 Email 的正確性&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-verify-email-address.png&#34; alt=&#34;驗證 email&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ses-使用-smtp-寄送信件&#34;&gt;SES 使用 SMTP 寄送信件&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;建立 SMTP 憑證&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;點選選單 &lt;code&gt;Email Sending&lt;/code&gt; &amp;gt; &lt;code&gt;SMTP Settings&lt;/code&gt; 頁籤，點選 &lt;code&gt;Create My SMTP Credentials&lt;/code&gt; 按鈕建立 IAM 使用者可以存取 SES 服務&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-create-smtp-credentials.png&#34; alt=&#34;建立 SMTP 憑證&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Statement&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ses:SendRawEmail&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;設定 IAM 使用者帳號名稱&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;設定可以存取 SES 的 IAM 使用者的帳號名稱&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-setting-iam-information.png&#34; alt=&#34;設定 IAM 使用者帳號名稱&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;取得 SES IAM 使用者 Access Key&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;設定完成之後可以取得此 IAM 使用者的 Access Key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-iam-user-access-key.png&#34; alt=&#34;取得 SES IAM 使用者 Access Key&#34;&gt;&lt;/p&gt;
+&lt;p&gt;將取得得 Access Key 當作 SMTP 的帳號密碼登入即可寄信&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;寄信設定檔&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;MAIL_HOST&lt;/code&gt; 看看您的 SES 是使用放在哪個區域，依照 AWS 提供的區域設定進行設定即可開始寄信&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-env&#34; data-lang=&#34;env&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# SES&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_DRIVER&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;smtp
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_HOST&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;email-smtp.us-west-2.amazonaws.com
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;587&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_ENCRYPTION&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;tls
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_USERNAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SMTP Username&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_PASSWORD&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ses-create-smtp-credentials Password&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/ses-smtp-server-name.png&#34; alt=&#34;寄信設定檔&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Target Group</title>
       <link>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/target-group/</link>
       <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
@@ -1037,6 +1382,322 @@ dualstack.name-123456789.region.elb.amazonaws.com
         
         
         
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Cloudfront</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/cloudfront/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/cloudfront/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: lambda</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/lambda/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/lambda/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;收費方式&#34;&gt;收費方式&lt;/h2&gt;
+&lt;p&gt;依照選擇的 &lt;code&gt;記憶體大小&lt;/code&gt;，然後依照 &lt;code&gt;程式執行時間（每 100 毫秒的價格 (USD)）&lt;/code&gt; 去收費&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/lambda/pricing/&#34;&gt;AWS Lambda – 定價&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: API Gateway</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/api-gateway/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/api-gateway/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;收費方式&#34;&gt;收費方式&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;請求(Request) 費用&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1,000,000 Request / $4.25&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;流量費用&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前 10 TB 0.14 USD/GB&lt;/li&gt;
+&lt;li&gt;下一個 40 TB 0.135 USD/GB&lt;/li&gt;
+&lt;li&gt;下一個 100 TB 0.13 USD/GB&lt;/li&gt;
+&lt;li&gt;下一個 350 TB 0.12 USD/GB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;快取費用&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;快取記憶體大小 / 美元（每小時）&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0.5 G / 0.020 USD / per hour&lt;/li&gt;
+&lt;li&gt;1.6 G / 0.038 USD / per hour&lt;/li&gt;
+&lt;li&gt;6.1 G / 0.200 USD / per hour&lt;/li&gt;
+&lt;li&gt;13.5 G / 0.250 USD / per hour&lt;/li&gt;
+&lt;li&gt;28.4 G / 0.500 USD / per hour&lt;/li&gt;
+&lt;li&gt;58.2 G / 1.000 USD / per hour&lt;/li&gt;
+&lt;li&gt;118.0 G / 1.900 USD / per hour&lt;/li&gt;
+&lt;li&gt;237.0 G / 3.800 USD / per hour&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/api-gateway/pricing/&#34;&gt;Amazon API Gateway – 定價&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 服務架構</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/services/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/services/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: CLI</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/cli/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/cli/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;安裝-aws-cli&#34;&gt;安裝 AWS CLI&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;1. 安裝 python&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ brew install python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;2. 安裝 pip&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python3 get-pip.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install python-pip python-dev build-essential
+sudo pip install --upgrade pip
+sudo pip install --upgrade virtualenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;3. 安裝 aws cli&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ pip install awscli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;4 設定 AWS CLI A&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;設定可以存取 AWS 的 Access Key ID 、 Secret Access Key 與區域，Key 可以從 IAM 個人帳號那邊去產生&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ aws configure
+
+AWS Access Key ID &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;None&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:
+AWS Secret Access Key &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;None&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:
+Default region name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;None&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: ap-northeast-1
+Default output format &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;None&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;查詢-aws-cli-版本&#34;&gt;查詢 AWS CLI 版本&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;aws --version
+aws-cli/1.15.80 Python/2.7.12 Linux/4.4.0-1061-aws botocore/1.10.79
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;更新-aws-cli&#34;&gt;更新 AWS CLI&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install awscli --upgrade --user
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解除安裝-aws-cli&#34;&gt;解除安裝 AWS CLI&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip uninstall awscli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/cli/&#34;&gt;AWS 命令列界面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stringpiggy.hpd.io/mac-osx-python3-dual-install/&#34;&gt;Mac OSX 正確地同時安裝 Python 2.7 和 Python3 – 字串小豬&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pip.pypa.io/en/stable/installing/&#34;&gt;Installation — pip 10.0.1 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/installing.html&#34;&gt;安装 AWS Command Line Interface - AWS Command Line Interface&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: CodeDeploy</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Elastic Beanstalk</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/elastic-beanstalk/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/elastic-beanstalk/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=ISVaMijczKc&#34;&gt;Deploying a Laravel App via Elastic Beanstalk | Amazon Web Services BASICS - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=xhc1boyBkJw&#34;&gt;Deploying onto AWS Elastic Beanstalk - Deploy Web Applications on AWS - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Virtual Private Cloud(VPC)</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/vpc/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/vpc/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonVPC/latest/UserGuide/VPC_Introduction.html&#34;&gt;什么是 Amazon VPC？ - Amazon Virtual Private Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 檢測</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/detect/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/detect/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;aws-狀態&#34;&gt;AWS 狀態&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[https://status.aws.amazon.com/](AWS Service Health Dashboard)&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 區域</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/region/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/region/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;AWS region code&lt;/th&gt;
+&lt;th&gt;AWS region name&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Number of AZs&lt;/th&gt;
+&lt;th&gt;AZ names&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;us-east-1&lt;/td&gt;
+&lt;td&gt;Virginia&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;td&gt;us-east-1a, us-east-1b, us-east-1c, us-east-1e&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;us-west-1&lt;/td&gt;
+&lt;td&gt;N. California&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td&gt;us-west-1a, us-west-1b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;us-west-2&lt;/td&gt;
+&lt;td&gt;Oregon&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;td&gt;us-west-2a, us-west-2b, us-west-2c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;eu-west-1&lt;/td&gt;
+&lt;td&gt;Ireland&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;td&gt;eu-west-1a, eu-west-1b, eu-west-1c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;eu-central-1&lt;/td&gt;
+&lt;td&gt;Frankfurt&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td&gt;eu-central-1a, eu-central-1b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ap-southeast-1&lt;/td&gt;
+&lt;td&gt;Singapore&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td&gt;ap-southeast-1a, ap-southeast-1b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ap-southeast-2&lt;/td&gt;
+&lt;td&gt;Sydney&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td&gt;ap-southeast-2a, ap-southeast-2b, ap-southeast-2c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ap-northeast-1&lt;/td&gt;
+&lt;td&gt;Tokyo&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td&gt;ap-northeast-1a, ap-northeast-1c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sa-east-1&lt;/td&gt;
+&lt;td&gt;Sao Paulo&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;td&gt;sa-east-1a, sa-east-1b, sa-east-1c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/neilstuartcraig/0ccefcf0887f29b7f240&#34;&gt;List of AWS availability zones for each AWS region&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 標籤</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/tag/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/tag/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html&#34;&gt;Tagging Your Amazon EC2 Resources - Amazon Elastic Compute Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 狀態除錯</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/debug/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://status.aws.amazon.com/&#34;&gt;AWS Service Health Dashboard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://downdetector.com/status/aws-amazon-web-services&#34;&gt;AWS live status. Problems and outages for Amazon Web Services | Downdetector&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/hashtag/AWS&#34;&gt;Twitter #AWS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
       </description>
     </item>
     

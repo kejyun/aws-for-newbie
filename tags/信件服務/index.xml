@@ -1,0 +1,66 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – 信件服務</title>
+    <link>https://aws-for-newbie.kejyun.com/tags/%E4%BF%A1%E4%BB%B6%E6%9C%8D%E5%8B%99/</link>
+    <description>Recent content in 信件服務 on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/%E4%BF%A1%E4%BB%B6%E6%9C%8D%E5%8B%99/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Simple Email Service (SES)</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ses/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ses/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;驗證寄信-email&#34;&gt;驗證寄信 Email&lt;/h2&gt;
+&lt;p&gt;要使用指定的 Email 寄送信件時，AWS SES 需要驗證此信箱是否為正確的信箱&lt;/p&gt;
+&lt;p&gt;在左側 &lt;code&gt;Identity Management&lt;/code&gt; 選單中，點選 &lt;code&gt;Email Addresses&lt;/code&gt;，在右側頁面點選 &lt;code&gt;Verify a New Email Address&lt;/code&gt; 按鈕，輸入您要用來寄送的 Email，然後點選 &lt;code&gt;Verify This Email Address&lt;/code&gt; 按鈕驗證此 Email 的正確性&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-verify-email-address.png&#34; alt=&#34;驗證 email&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ses-使用-smtp-寄送信件&#34;&gt;SES 使用 SMTP 寄送信件&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;建立 SMTP 憑證&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;點選選單 &lt;code&gt;Email Sending&lt;/code&gt; &amp;gt; &lt;code&gt;SMTP Settings&lt;/code&gt; 頁籤，點選 &lt;code&gt;Create My SMTP Credentials&lt;/code&gt; 按鈕建立 IAM 使用者可以存取 SES 服務&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-create-smtp-credentials.png&#34; alt=&#34;建立 SMTP 憑證&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Statement&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ses:SendRawEmail&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;設定 IAM 使用者帳號名稱&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;設定可以存取 SES 的 IAM 使用者的帳號名稱&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-setting-iam-information.png&#34; alt=&#34;設定 IAM 使用者帳號名稱&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;取得 SES IAM 使用者 Access Key&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;設定完成之後可以取得此 IAM 使用者的 Access Key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ses-iam-user-access-key.png&#34; alt=&#34;取得 SES IAM 使用者 Access Key&#34;&gt;&lt;/p&gt;
+&lt;p&gt;將取得得 Access Key 當作 SMTP 的帳號密碼登入即可寄信&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;寄信設定檔&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;MAIL_HOST&lt;/code&gt; 看看您的 SES 是使用放在哪個區域，依照 AWS 提供的區域設定進行設定即可開始寄信&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-env&#34; data-lang=&#34;env&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# SES&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_DRIVER&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;smtp
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_HOST&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;email-smtp.us-west-2.amazonaws.com
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;587&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_ENCRYPTION&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;tls
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_USERNAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SMTP Username&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;MAIL_PASSWORD&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ses-create-smtp-credentials Password&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./images/ses-smtp-server-name.png&#34; alt=&#34;寄信設定檔&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

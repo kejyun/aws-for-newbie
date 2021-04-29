@@ -1,0 +1,37 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Elastic Beanstalk</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/elastic-beanstalk/</link>
+    <description>Recent content in Elastic Beanstalk on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/elastic-beanstalk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Elastic Beanstalk</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/elastic-beanstalk/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/elastic-beanstalk/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=ISVaMijczKc&#34;&gt;Deploying a Laravel App via Elastic Beanstalk | Amazon Web Services BASICS - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=xhc1boyBkJw&#34;&gt;Deploying onto AWS Elastic Beanstalk - Deploy Web Applications on AWS - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

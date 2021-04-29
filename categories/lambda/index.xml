@@ -1,0 +1,38 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – lambda</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/lambda/</link>
+    <description>Recent content in lambda on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/lambda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: lambda</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/lambda/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/lambda/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;收費方式&#34;&gt;收費方式&lt;/h2&gt;
+&lt;p&gt;依照選擇的 &lt;code&gt;記憶體大小&lt;/code&gt;，然後依照 &lt;code&gt;程式執行時間（每 100 毫秒的價格 (USD)）&lt;/code&gt; 去收費&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/lambda/pricing/&#34;&gt;AWS Lambda – 定價&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

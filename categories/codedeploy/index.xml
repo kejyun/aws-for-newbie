@@ -1,0 +1,265 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – CodeDeploy</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/codedeploy/</link>
+    <description>Recent content in CodeDeploy on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/codedeploy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Auto Scaling 自動部署程式</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/auto-scaling/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/auto-scaling/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;auto-scaling-自動部署程式&#34;&gt;Auto Scaling 自動部署程式&lt;/h1&gt;
+&lt;h2 id=&#34;建立-iam-角色-role&#34;&gt;建立 IAM 角色 (Role)&lt;/h2&gt;
+&lt;h3 id=&#34;設定角色名稱&#34;&gt;設定角色名稱&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-setting-iam-roles-name.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;設定角色類型&#34;&gt;設定角色類型&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-setting-iam-roles-type.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定-code-deploy&#34;&gt;設定 Code Deploy&lt;/h2&gt;
+&lt;h3 id=&#34;選擇部署機器類型&#34;&gt;選擇部署機器類型&lt;/h3&gt;
+&lt;p&gt;選擇 Auto Scaling Group，當 Auto Scaling 觸發時，則會自動執行程式部署&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-create-deployment-group-select-auto-sacling-group.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;選擇-deploy-iam-role&#34;&gt;選擇 Deploy IAM Role&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-auto-scaling-create-deployment-group-select-iam-role.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ec2-plugin&#34;&gt;EC2 Plugin&lt;/h2&gt;
+&lt;p&gt;請先安裝 &lt;a href=&#34;../../ec2/cli/&#34;&gt;AWS CLI&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安裝-codedeploy-agent&#34;&gt;安裝 CodeDeploy Agent&lt;/h3&gt;
+&lt;h2 id=&#34;ubuntu-1604&#34;&gt;Ubuntu 16.04&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install ruby
+sudo apt-get install wget
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /home/ubuntu
+wget https://bucket-name.s3.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Region name&lt;/th&gt;
+&lt;th&gt;bucket-name replacement&lt;/th&gt;
+&lt;th&gt;Region identifier&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;US East (Ohio)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-east-2&lt;/td&gt;
+&lt;td&gt;us-east-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;US East (N. Virginia)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-east-1&lt;/td&gt;
+&lt;td&gt;us-east-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;US West (N. California)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-west-1&lt;/td&gt;
+&lt;td&gt;us-west-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;US West (Oregon)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-us-west-2&lt;/td&gt;
+&lt;td&gt;us-west-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Canada (Central)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ca-central-1&lt;/td&gt;
+&lt;td&gt;ca-central-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (Ireland)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-west-1&lt;/td&gt;
+&lt;td&gt;eu-west-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (London)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-west-2&lt;/td&gt;
+&lt;td&gt;eu-west-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (Paris)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-west-3&lt;/td&gt;
+&lt;td&gt;eu-west-3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EU (Frankfurt)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-eu-central-1&lt;/td&gt;
+&lt;td&gt;eu-central-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Tokyo)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-northeast-1&lt;/td&gt;
+&lt;td&gt;ap-northeast-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Seoul)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-northeast-2&lt;/td&gt;
+&lt;td&gt;ap-northeast-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Singapore)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-southeast-1&lt;/td&gt;
+&lt;td&gt;ap-southeast-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Sydney)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-southeast-2&lt;/td&gt;
+&lt;td&gt;ap-southeast-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Asia Pacific (Mumbai)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-ap-south-1&lt;/td&gt;
+&lt;td&gt;ap-south-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;South America (São Paulo)&lt;/td&gt;
+&lt;td&gt;aws-codedeploy-sa-east-1&lt;/td&gt;
+&lt;td&gt;sa-east-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;測試-codedeploy-agent&#34;&gt;測試 CodeDeploy Agent&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service codedeploy-agent status
+sudo service codedeploy-agent start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安裝完 Agent 之後，AWS 才可以透過 Agent 自動部署程式&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-ubuntu.html&#34;&gt;Install or reinstall the AWS CodeDeploy agent for Ubuntu Server - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names&#34;&gt;AWS CodeDeploy Resource Kit Reference - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-run-agent-install.html&#34;&gt;Install or Reinstall the AWS CodeDeploy Agent - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/cli/latest/userguide/installing.html#install-bundle-other-os&#34;&gt;Installing the AWS Command Line Interface - AWS Command Line Interface&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Deploy 標籤群組</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/tag-group/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/tag-group/</guid>
+      <description>
+        
+        
+        &lt;p&gt;除了在 Code Deploy 使用 Auto Scaling 去 Deploy 程式外，也可以使用 &lt;code&gt;標籤（Tag）&lt;/code&gt; 的方式去 Deploy 程式到指定 &lt;code&gt;標籤（Tag）&lt;/code&gt; 的主機。&lt;/p&gt;
+&lt;h2 id=&#34;設定-ec2-主機標籤&#34;&gt;設定 EC2 主機標籤&lt;/h2&gt;
+&lt;p&gt;在主機中設定 EC2 主機的標籤為 &lt;code&gt;CodeDeployInstance&lt;/code&gt; 並給數值為 &lt;code&gt;1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-deployment-group.png&#34; alt=&#34;標籤群組設定&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-code-deploy-群組&#34;&gt;建立 Code Deploy 群組&lt;/h2&gt;
+&lt;p&gt;在 Code Deploy 的 &lt;code&gt;Application &amp;gt; Deployment groups&lt;/code&gt; 中建立 Code Deployment 群組&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment-group.png&#34; alt=&#34;建立 Deployment 群組&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在建立 Code Deployment 群組中的 &lt;code&gt;環境設置（Environment configuration）&lt;/code&gt; 中，選擇 &lt;code&gt;Amazon EC2 instances&lt;/code&gt;，並設定 EC2 主機的標籤為 &lt;code&gt;CodeDeployInstance&lt;/code&gt; 並給數值為 &lt;code&gt;1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-ec2-tag.png&#34; alt=&#34;設定 Deployment 群組 ec2 tag&#34;&gt;&lt;/p&gt;
+&lt;p&gt;取消啟用 Load Balancer&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-cancel-load-balancer.png&#34; alt=&#34;取消設定 Deployment 群組 Load Balancer&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-code-deploy&#34;&gt;建立 Code Deploy&lt;/h2&gt;
+&lt;p&gt;建立 Code Deploy&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment.png&#34; alt=&#34;建立 Deployment&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 Code Deploy 選擇剛剛建立的 Code Deploy 群組&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment-choose-group.png&#34; alt=&#34;建立 Deployment，選擇 Deploy 群組&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 除錯</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/debug/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;s3&#34;&gt;S3&lt;/h2&gt;
+&lt;p&gt;若是把程式放在 S3 的話，記得在 IAM Role 中設定 S3 的存取權限，可以使用 &lt;code&gt;Attach Polocy&lt;/code&gt; 將 S3 的權限加入，或者可以用 &lt;code&gt;Inline Policy&lt;/code&gt; 將權限加入，這樣才可以正常 Deploy&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Statement&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+              &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;s3:Get*&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+              &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;s3:List*&amp;#34;&lt;/span&gt;
+          &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-s3-permission.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;p&gt;若沒有正確的設定權限，則會看到 &lt;code&gt;DownloadBundle&lt;/code&gt; 的 &lt;code&gt;Access Denied&lt;/code&gt; 的訊息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-s3-permission-download-bundle.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-s3-permission-download-bundle-access-denied.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;log&#34;&gt;Log&lt;/h2&gt;
+&lt;p&gt;若要看到操作過程的相關 Log，可以到 EC2 下，找到下列目錄，就可以看到相關的存取 Log&lt;/p&gt;
+&lt;h4 id=&#34;流程紀錄&#34;&gt;流程紀錄&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;less /var/log/aws/codedeploy-agent/codedeploy-agent.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;部署記錄&#34;&gt;部署記錄&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;less /opt/codedeploy-agent/deployment-root/&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;deployment-group-ID&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;deployment-ID&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/logs/scripts.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;deployment-group-ID：由 Code Deploy 產生的 Deploy Group 代號&lt;/li&gt;
+&lt;li&gt;deployment-ID：在產生新的 Deploy 時，會有自己特定的部署編號，會長的像 &lt;code&gt;d-6CTSMH2MK&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-debug-log-deployment-id.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;檢查-code-deploy-版本&#34;&gt;檢查 Code Deploy 版本&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cat /opt/codedeploy-agent/.version
+agent_version: OFFICIAL_1.0-1.1458_deb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;更新-code-deploy-版本&#34;&gt;更新 Code Deploy 版本&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo /opt/codedeploy-agent/bin/install auto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-deployment-failed-because-a-specified-file-already-exists-at-this-location-homeubuntuindexhtml&#34;&gt;The deployment failed because a specified file already exists at this location: /home/ubuntu/index.html&lt;/h2&gt;
+&lt;p&gt;在使用 Auto Scaling 去做 Code Deploy 時，遇到了檔案權限不能寫入的問題&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The deployment failed because a specified file already exists at this location: /home/ubuntu/index.html&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-the-deployment-failed-because-a-specified-file-already-exists-at-this-location.png&#34; alt=&#34;The deployment failed because a specified file already exists at this location&#34;&gt;&lt;/p&gt;
+&lt;p&gt;因為在做 AMI 去 Auto Scaling 時，有做了手動 Code Deploy 的測試，所以在 &lt;code&gt;/home/ubuntu/&lt;/code&gt; 目錄下有建立 Code Deploy 相關的檔案。&lt;/p&gt;
+&lt;p&gt;要解決這個問題，需要把原先在 &lt;code&gt;/home/ubuntu/&lt;/code&gt; 目錄 Code Deploy 檔案先移除，在做 AMI 檔案去 Auto Scaling 就可以了&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Code Deploy 相關檔案&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;codedeploy
+    change_permissions
+    install_dependencies
+appspec.yml
+index.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-ec2-instances.html&#34;&gt;Troubleshoot Instance Issues - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/devops/view-aws-codedeploy-logs-in-amazon-cloudwatch-console/&#34;&gt;View AWS CodeDeploy logs in Amazon CloudWatch console | AWS DevOps Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-deployments.html&#34;&gt;Troubleshoot Deployment Issues - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/codedeploy/latest/userguide/codedeploy-agent.html#codedeploy-agent-supported-versions&#34;&gt;Troubleshoot Deployment Issues - AWS CodeDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-update-ubuntu.html](Update the AWS CodeDeploy Agent on Ubuntu Server - AWS CodeDeploy)&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: CodeDeploy</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

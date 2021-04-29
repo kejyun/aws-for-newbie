@@ -1,0 +1,48 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Deploy 標籤群組</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/deploy-%E6%A8%99%E7%B1%A4%E7%BE%A4%E7%B5%84/</link>
+    <description>Recent content in Deploy 標籤群組 on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/deploy-%E6%A8%99%E7%B1%A4%E7%BE%A4%E7%B5%84/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Deploy 標籤群組</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/code-deploy/tag-group/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/code-deploy/tag-group/</guid>
+      <description>
+        
+        
+        &lt;p&gt;除了在 Code Deploy 使用 Auto Scaling 去 Deploy 程式外，也可以使用 &lt;code&gt;標籤（Tag）&lt;/code&gt; 的方式去 Deploy 程式到指定 &lt;code&gt;標籤（Tag）&lt;/code&gt; 的主機。&lt;/p&gt;
+&lt;h2 id=&#34;設定-ec2-主機標籤&#34;&gt;設定 EC2 主機標籤&lt;/h2&gt;
+&lt;p&gt;在主機中設定 EC2 主機的標籤為 &lt;code&gt;CodeDeployInstance&lt;/code&gt; 並給數值為 &lt;code&gt;1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-deployment-group.png&#34; alt=&#34;標籤群組設定&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-code-deploy-群組&#34;&gt;建立 Code Deploy 群組&lt;/h2&gt;
+&lt;p&gt;在 Code Deploy 的 &lt;code&gt;Application &amp;gt; Deployment groups&lt;/code&gt; 中建立 Code Deployment 群組&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment-group.png&#34; alt=&#34;建立 Deployment 群組&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在建立 Code Deployment 群組中的 &lt;code&gt;環境設置（Environment configuration）&lt;/code&gt; 中，選擇 &lt;code&gt;Amazon EC2 instances&lt;/code&gt;，並設定 EC2 主機的標籤為 &lt;code&gt;CodeDeployInstance&lt;/code&gt; 並給數值為 &lt;code&gt;1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-ec2-tag.png&#34; alt=&#34;設定 Deployment 群組 ec2 tag&#34;&gt;&lt;/p&gt;
+&lt;p&gt;取消啟用 Load Balancer&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-setting-cancel-load-balancer.png&#34; alt=&#34;取消設定 Deployment 群組 Load Balancer&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-code-deploy&#34;&gt;建立 Code Deploy&lt;/h2&gt;
+&lt;p&gt;建立 Code Deploy&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment.png&#34; alt=&#34;建立 Deployment&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 Code Deploy 選擇剛剛建立的 Code Deploy 群組&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/code-deploy-ec2-tag-group-create-deployment-choose-group.png&#34; alt=&#34;建立 Deployment，選擇 Deploy 群組&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
