@@ -45,5 +45,28 @@ $ sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
       </description>
     </item>
     
+    <item>
+      <title>Docs: CLI</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/s3/cli/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/s3/cli/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;複製本機檔案至-s3&#34;&gt;複製本機檔案至 S3&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;aws s3 cp &amp;quot;本機檔案路徑&amp;quot; &amp;quot;S3 目錄路徑&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;aws s3 cp /home/kejyun/web.tar.gz s3://kj-bucket-name/my/folder/
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;複製-s3-檔案至本機&#34;&gt;複製 S3 檔案至本機&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;aws s3 cp &amp;quot;S3 檔案路徑&amp;quot; &amp;quot;本機目錄&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;aws s3 cp s3://kj-bucket-name/my/folder/web.tar.gz /home/kejyun/
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/getting-started/tutorials/backup-to-s3-cli/&#34;&gt;如何以指令碼將檔案備份到 Amazon S3 – AWS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

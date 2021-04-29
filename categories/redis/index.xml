@@ -1,0 +1,80 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Redis</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/redis/</link>
+    <description>Recent content in Redis on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 23 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/redis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Redis</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/elasticache/redis/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/elasticache/redis/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;aws-redis-cluster&#34;&gt;AWS Redis Cluster&lt;/h2&gt;
+&lt;p&gt;AWS 群集模式參考架構（來源：AWS）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/ElastiCache-NodeGroups.png&#34; alt=&#34;AWS 群集模式參考架構（來源：AWS）&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cluster Mode Enable 啟用群集模式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;將同一個資料做不同的分片（Shared），而不同的分片會有自己的備援（Replica）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cluster Mode Disable 禁用群集模式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;同一個資料僅有一個分片，自己的分片可以建立自己的備援（Replica）&lt;/p&gt;
+&lt;h2 id=&#34;aws-redis-cluster-mode-enable-啟用群集模式&#34;&gt;AWS Redis Cluster Mode Enable 啟用群集模式&lt;/h2&gt;
+&lt;h3 id=&#34;建立-redis-aws-cluster-mode-enable-群集&#34;&gt;建立 Redis AWS Cluster Mode Enable 群集&lt;/h3&gt;
+&lt;p&gt;建立 AWS Cluster Mode Enable 群集，將「Cluster Mode enabled」打勾，在下方的「Number of Shareds」設定資料分片數量，以及在「Replicas per Shared」設定每個分片數量要有幾個備援。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-create-redis-cluster-mode-enabled.png&#34; alt=&#34;建立 AWS Redis Cluster Mode Enable 群集&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;取得群集端點configuration-endpoint&#34;&gt;取得群集端點（Configuration Endpoint）&lt;/h3&gt;
+&lt;p&gt;建立完群集之後，在列表中取得群集端點（Configuration Endpoint）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-enabled-endpoint.png&#34; alt=&#34;取得群集端點（Configuration Endpoint）&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;群集分片&#34;&gt;群集分片&lt;/h3&gt;
+&lt;p&gt;建立完後會看到君集裡面有群集分片，分別去放置不同資料位置的資料。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-enabled-shared.png&#34; alt=&#34;群集分片&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增群集分片&#34;&gt;新增群集分片&lt;/h3&gt;
+&lt;p&gt;群集分片可以隨自己的主機負載狀況去做新增，在新增時主機會呈現 modifying 的狀態，在新增修改分片期間，Redis 還是能夠正常的被存取，不會受到影響。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-enabled-add-shared.png&#34; alt=&#34;新增群集分片中&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在新增群集分片完成後，資料群集分片會再被切割。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-enabled-add-shared-finish.png&#34; alt=&#34;新增群集分片完成&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;移除群集分片&#34;&gt;移除群集分片&lt;/h3&gt;
+&lt;p&gt;群集分片可以隨時的移除。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-enabled-remove-shared.png&#34; alt=&#34;移除群集分片中&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在移除後，原本的資料群集分片資料，會再被統整合併到現有的群集內。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-enabled-remove-shared-finish.png&#34; alt=&#34;新增群集分片完成&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;移除群集分片後再加入新分片節點&#34;&gt;移除群集分片後再加入新分片節點&lt;/h3&gt;
+&lt;p&gt;移除群集分片後再加入新分片節點後，會看到新增的群集會再去重新分配現有的群集分片資料&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-enabled-remove-shared-and-add-again.png&#34; alt=&#34;移除群集分片後再加入分片&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;aws-redis-cluster-mode-disable-禁用群集模式&#34;&gt;AWS Redis Cluster Mode Disable 禁用群集模式&lt;/h2&gt;
+&lt;h3 id=&#34;建立-redis-aws-cluster-mode-disable-群集&#34;&gt;建立 Redis AWS Cluster Mode Disable 群集&lt;/h3&gt;
+&lt;p&gt;建立 AWS Cluster Mode Disabled 群集，將「Cluster Mode enabled」取消勾選，以及在「Number of replicas」設定要有幾個備援節點。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-create-redis-cluster-mode-disabled.png&#34; alt=&#34;建立 AWS Redis Cluster Mode Disable 群集&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;取得群集端點primary-endpoint&#34;&gt;取得群集端點（Primary Endpoint）&lt;/h3&gt;
+&lt;p&gt;建立完群集之後，在列表中取得群集端點（Primary Endpoint）。
+&lt;img src=&#34;./images/aws-redis-cluster-disabled-endpoint.png&#34; alt=&#34;取得群集端點（Primary Endpoint）&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;群集端點nodes&#34;&gt;群集端點（Nodes）&lt;/h3&gt;
+&lt;p&gt;在群集內可以看到有主要群集端點（Primary）跟備援群集端點（Replica），備援群集端點（Replica）的資料跟主群集端點（Primary）一樣，只是會做到讀寫分離。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-disabled-nodes.png&#34; alt=&#34;群集端點&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;建立新群集端點&#34;&gt;建立新群集端點&lt;/h3&gt;
+&lt;p&gt;備援群集端點（Replica）可以隨機器狀況調整隨時新增刪除去調整。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./images/aws-redis-cluster-disabled-nodes-create.png&#34; alt=&#34;群集端點&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonElastiCache/latest/UserGuide/Replication.Redis-RedisCluster.html&#34;&gt;复制：Redis (已禁用集群模式) 与 Redis (已启用集群模式) - Amazon ElastiCache&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonElastiCache/latest/UserGuide/SelectEngine.Uses.html&#34;&gt;选择引擎：Memcached、Redis (已禁用集群模式) 或 Redis (已启用集群模式) - Amazon ElastiCache&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

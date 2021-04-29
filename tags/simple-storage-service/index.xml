@@ -1,0 +1,115 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Simple Storage Service</title>
+    <link>https://aws-for-newbie.kejyun.com/tags/simple-storage-service/</link>
+    <description>Recent content in Simple Storage Service on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 23 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/simple-storage-service/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: CLI</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/s3/cli/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/s3/cli/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;複製本機檔案至-s3&#34;&gt;複製本機檔案至 S3&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;aws s3 cp &amp;quot;本機檔案路徑&amp;quot; &amp;quot;S3 目錄路徑&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;aws s3 cp /home/kejyun/web.tar.gz s3://kj-bucket-name/my/folder/
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;複製-s3-檔案至本機&#34;&gt;複製 S3 檔案至本機&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;aws s3 cp &amp;quot;S3 檔案路徑&amp;quot; &amp;quot;本機目錄&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;aws s3 cp s3://kj-bucket-name/my/folder/web.tar.gz /home/kejyun/
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/tw/getting-started/tutorials/backup-to-s3-cli/&#34;&gt;如何以指令碼將檔案備份到 Amazon S3 – AWS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: ARN Policy</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/s3/arn-policy/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/s3/arn-policy/</guid>
+      <description>
+        
+        
+        &lt;p&gt;建立可以存取 S3 Bucket 的 ARN 權限&lt;/p&gt;
+&lt;p&gt;到 &lt;a href=&#34;https://awspolicygen.s3.amazonaws.com/policygen.html&#34;&gt;AWS Policy Generator&lt;/a&gt; 產生可以存取 S3 的權限 Policy&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/aws-policy-generator-1.png&#34; alt=&#34;aws policy generator&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Effect&lt;/code&gt; 選擇 &lt;code&gt;Allow&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Principal&lt;/code&gt; 填寫所在區域的 &lt;code&gt;Elastic Load Balancing Account ID&lt;/code&gt;，像在東京就填寫 &lt;code&gt;582318560864&lt;/code&gt;，詳細 id 範例如下&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/Elastic-Load-Balancing-Account-ID.png&#34; alt=&#34;Elastic Load Balancing Account ID&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;AWS Service&lt;/code&gt; 選擇 &lt;code&gt;Amazon S3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Action&lt;/code&gt; 選擇指定權限&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Amazon Resource Name (ARN)&lt;/code&gt; 填寫的樣式會像是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;arn:aws:s3:::bucket/prefix/AWSLogs/aws-account-id/*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;bucket/prefix/AWSLogs&lt;/code&gt; 填寫允許存取哪一個 &lt;code&gt;bucket&lt;/code&gt; 路徑即可，範例會像是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;arn:aws:s3:::kejyun-bucket/ec2-alb-web/*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;表示在 Bucket &lt;code&gt;kejyun-bucket&lt;/code&gt; 下的 &lt;code&gt;ec2-alb-web&lt;/code&gt; 目錄可以存取&lt;/p&gt;
+&lt;p&gt;完成後點選 &lt;code&gt;Generate Policy&lt;/code&gt; 按鈕即可產生 Policy&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/aws-policy-generator-2.png&#34; alt=&#34;aws policy generator&#34;&gt;&lt;/p&gt;
+&lt;p&gt;產生完的 Policy 會像是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Policy1561544116661&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Statement&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Sid&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Stmt1561542985535&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;s3:PutObject&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;arn:aws:s3:::kejyun-bucket/ec2-alb-web/*&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Principal&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;AWS&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+          &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;582318560864&amp;#34;&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;之後到 &lt;code&gt;AWS S3 Bucket&lt;/code&gt; 選擇 &lt;code&gt;Permissions&lt;/code&gt; 頁籤，點選 &lt;code&gt;Bucket Policy&lt;/code&gt;，將產生的 Policy 貼到下方儲存即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/aws-s3-bucket-permission.png&#34; alt=&#34;aws s3 permission&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html&#34;&gt;Access Logs for Your Application Load Balancer - Elastic Load Balancing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://awspolicygen.s3.amazonaws.com/policygen.html&#34;&gt;AWS Policy Generator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html&#34;&gt;Your AWS Account ID and Its Alias - AWS Identity and Access Management&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: S3</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/s3/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/s3/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;cloudfront-cdn-加速&#34;&gt;Cloudfront CDN 加速&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html&#34;&gt;Amazon S3 Transfer Acceleration Speed Comparison&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
