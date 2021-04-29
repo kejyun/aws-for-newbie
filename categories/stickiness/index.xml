@@ -1,0 +1,63 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Stickiness</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/stickiness/</link>
+    <description>Recent content in Stickiness on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/stickiness/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Stickiness</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/stickiness/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/stickiness/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;aws-load-balancer-stickiness&#34;&gt;AWS Load Balancer Stickiness&lt;/h1&gt;
+&lt;p&gt;在 AWS Load Balancer 中可以看到 Stickness 的設定，開啟 Stickness 表示 Load Balancer 會針對同一個使用者的請求，會使用指向同一台 EC2 機器。&lt;/p&gt;
+&lt;h2 id=&#34;classic-load-balancer&#34;&gt;Classic Load Balancer&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-stickiness-setting.png&#34; alt=&#34;AWS Load Balancer Stickiness 設定&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 Stickness 設定視窗中你會看到有三個設定方式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Disable stickiness&lt;/li&gt;
+&lt;li&gt;Enable load balancer generated cookie stickiness&lt;/li&gt;
+&lt;li&gt;Enable application generated cookie stickiness&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-stickiness-setting-dialog.png&#34; alt=&#34;AWS Load Balancer Stickiness 設定視窗&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;stickness-設定方式&#34;&gt;Stickness 設定方式&lt;/h3&gt;
+&lt;p&gt;「Load Balancer」與「application generated」設定方式的差異分別如下&lt;/p&gt;
+&lt;h4 id=&#34;enable-load-balancer-generated-cookie-stickiness&#34;&gt;Enable Load Balancer Generated Cookie Stickiness&lt;/h4&gt;
+&lt;p&gt;Load Balancer 會自己加入一個自己的 Cookie 資訊到瀏覽器，並設定 Cookie 的失效時間，Load Balancer 會自行控制該 Cookie 的狀況&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-stickiness-setting-dialog-load-balancer-generated-cookie-stickiness.png&#34; alt=&#34;AWS Load Balancer Stickiness 設定視窗&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;enable-application-generated-cookie-stickiness&#34;&gt;Enable application generated cookie stickiness&lt;/h4&gt;
+&lt;p&gt;Load Balancer 會針對使用者自己網站的 cookie，去分配流量到機器的狀況，由使用者自己網站的應用程式自行去控制 Cookie 的過期時間，所以需要自行設定網站 cookie 的名稱。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-stickiness-setting-dialog-application-generated-cookie-stickiness.png&#34; alt=&#34;AWS Load Balancer Stickiness 設定視窗&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;application-load-balancer&#34;&gt;Application Load Balancer&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;Target Group&lt;/code&gt; 選擇 &lt;code&gt;Description&lt;/code&gt; 頁籤，在下方的 &lt;code&gt;Stickiness&lt;/code&gt; 點選 &lt;code&gt;Edit attributes&lt;/code&gt; 按鈕&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/target-group-stickiness-menu.png&#34; alt=&#34;AWS Load Balancer Stickiness 設定視窗&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在設定視窗設定 Stickiness 的時間即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/target-group-stickiness-setting.png&#34; alt=&#34;AWS Load Balancer Stickiness 設定視窗&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/435431/ec2-load-balancer-difference-between-load-balancer-and-application-generat&#34;&gt;amazon ec2 - EC2 load balancer - difference between &amp;ldquo;Load Balancer&amp;rdquo; and &amp;ldquo;Application&amp;rdquo; Generated Cookie Stickiness - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/aws/new-elastic-load-balancing-feature-sticky-sessions/&#34;&gt;New Elastic Load Balancing Feature: Sticky Sessions | AWS News Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html&#34;&gt;Configure Sticky Sessions for Your Classic Load Balancer - Elastic Load Balancing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html&#34;&gt;Target Groups for Your Application Load Balancers - Elastic Load Balancing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

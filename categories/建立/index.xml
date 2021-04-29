@@ -1,0 +1,52 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – 建立</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/%E5%BB%BA%E7%AB%8B/</link>
+    <description>Recent content in 建立 on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/%E5%BB%BA%E7%AB%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 建立</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/create/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/create/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;選擇建立類型&#34;&gt;選擇建立類型&lt;/h2&gt;
+&lt;p&gt;在 Load Balancer 頁面點選 &lt;code&gt;Create Load Balancer&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-create-select-type.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;定義&#34;&gt;定義&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Load Balancer name : Load Balancer 名稱&lt;/li&gt;
+&lt;li&gt;Listener Configuration : Listen 的 port&lt;/li&gt;
+&lt;li&gt;Select Subnets: 選擇允許的子網路遮罩&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-create-define.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;security-group&#34;&gt;Security Group&lt;/h2&gt;
+&lt;p&gt;建立 Load Balancer 的 Security Group
+通常開放 80 (HTTP) 與 443 (HTTPS) 即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-create-security-group.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定機器狀態檢查網址&#34;&gt;設定機器狀態檢查網址&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-create-health-check.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;手動設定-ec2-機器&#34;&gt;手動設定 EC2 機器&lt;/h2&gt;
+&lt;p&gt;將指定的機器加入到 Load Balancer Instance 清單中
+若沒有機器的話，可以使用 Auto Scaling 的方式自動加入該機器&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/load-balancer-create-add-ec2-instance.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
