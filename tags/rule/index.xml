@@ -1,0 +1,40 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Rule</title>
+    <link>https://aws-for-newbie.kejyun.com/tags/rule/</link>
+    <description>Recent content in Rule on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/rule/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 規則</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/rule/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/rule/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;placing-spot-instance-request&#34;&gt;Placing Spot instance request&lt;/h2&gt;
+&lt;p&gt;在做 Auto Scaling 時，機器會一直不段的開開關關，且顯示 &lt;code&gt;Placing Spot instance request&lt;/code&gt; 的訊息，這個是表示 &lt;strong&gt;Scaling Policies&lt;/strong&gt; 規則中，Scale-up 與 Scale-down 的規則相互有衝突導致，此時必須要檢查一下規則是否有設定錯誤。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Placing Spot instance request. Status Reason: Spot instance request: sir-bcpgayih has been cancelled. Group size decreased &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; waiting &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Spot instance request to be fulfilled.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;At 2017-10-26T07:53:21Z a monitor alarm CPU Too Low in state ALARM triggered policy CPU Too Low changing the desired capacity from &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; to 1. At 2017-10-26T07:54:04Z a monitor alarm CPU Credit Too Low in state ALARM triggered policy CPU Credit Too Low changing the desired capacity from &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; to 2. At 2017-10-26T07:54:14Z a difference between desired and actual capacity changing the desired capacity, increasing the capacity from &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; to 2.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;參考資料&#34;&gt;參考資料&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://forums.aws.amazon.com/thread.jspa?threadID=159903&#34;&gt;AWS Developer Forums: Some spot requests for Auto Scale group &amp;hellip;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

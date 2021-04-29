@@ -1,0 +1,145 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Volume 硬碟</title>
+    <link>https://aws-for-newbie.kejyun.com/categories/volume-%E7%A1%AC%E7%A2%9F/</link>
+    <description>Recent content in Volume 硬碟 on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/categories/volume-%E7%A1%AC%E7%A2%9F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 增加 EC2 硬碟空間</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/volume/increasing-size/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/volume/increasing-size/</guid>
+      <description>
+        
+        
+        &lt;p&gt;要增加 EC2 的硬碟空間，可以直接修改 Elastic Volume 的大小，並在主機內下指令即可立即變更硬碟空間大小&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;1. 從 EC2 找出 Elastic Volume&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-volume-increasing-size-select-volumn-1.png&#34; alt=&#34;從 EC2 找出 Elastic Volume&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-volume-increasing-size-select-volumn-2.png&#34; alt=&#34;從 EC2 找出 Elastic Volume&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;2. 修改 Elastic Volume 大小&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-volume-increasing-size-show-select-volumn.png&#34; alt=&#34;修改 Elastic Volume 大小&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-volume-increasing-size-modify-select-volumn-1.png&#34; alt=&#34;修改 Elastic Volume 大小&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-volume-increasing-size-modify-select-volumn-2.png&#34; alt=&#34;修改 Elastic Volume 大小&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;3. 檢視目前硬碟空間配置&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;修改完 Elastic Volume 後，使用 &lt;code&gt;df -h&lt;/code&gt; 可以看到目前的硬碟空間還是沒有變的&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            992M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  992M   0% /dev
+tmpfs           200M   14M  187M   7% /run
+/dev/xvda1       49G   36G   14G  73% /
+tmpfs          1000M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 1000M   0% /dev/shm
+tmpfs           5.0M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  5.0M   0% /run/lock
+tmpfs          1000M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 1000M   0% /sys/fs/cgroup
+/dev/loop0       18M   18M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/amazon-ssm-agent/1068
+/dev/loop1       18M   18M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/amazon-ssm-agent/930
+/dev/loop2       92M   92M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/core/6531
+/dev/loop3       90M   90M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/core/6673
+/dev/loop4       91M   91M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/core/6405
+/dev/loop5       17M   17M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/amazon-ssm-agent/784
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1001
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1003
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1010
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1002
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用 &lt;code&gt;lsblk&lt;/code&gt; 可以看到 &lt;code&gt;xvda&lt;/code&gt; 的空間已經變成我們修改的 100G 了，但目前還無法使用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;xvda    202:0    0  100G  0 disk&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;`-xvda1 202:1    0   50G  0 part /&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvda    202:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  100G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;-xvda1 202:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   50G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+loop0     7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 17.9M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/1068
+loop1     7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   18M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/930
+loop2     7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 91.1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core/6531
+loop3     7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 89.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core/6673
+loop4     7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   91M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core/6405
+loop5     7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 16.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/784
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;4. 擴展可用的硬碟空間配置&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;sudo growpart /dev/xvda 1&lt;/code&gt; 擴展可用的硬碟空間配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo growpart /dev/xvda &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;sudo&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; password &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; kejyun:
+CHANGED: &lt;span style=&#34;color:#000&#34;&gt;partition&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2048&lt;/span&gt; old: &lt;span style=&#34;color:#000&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;104855519&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;end&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;104857567&lt;/span&gt; new: &lt;span style=&#34;color:#000&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;209713119,end&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;209715167&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;擴展後可以看到目前的可用空間已經擴展至 100 G 了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;xvda    202:0    0  100G  0 disk&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;`-xvda1 202:1    0  100G  0 part /&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvda    202:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  100G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;-xvda1 202:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  100G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+loop0     7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 17.9M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/1068
+loop1     7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   18M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/930
+loop2     7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 91.1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core/6531
+loop3     7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 89.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core/6673
+loop4     7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   91M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core/6405
+loop5     7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 16.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/784
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;5. 重新配置可用的硬碟空間&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;sudo resize2fs /dev/xvda1&lt;/code&gt; 指令重新配置可用的硬碟空間&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo resize2fs /dev/xvda1
+resize2fs 1.42.13 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;17-May-2015&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+Filesystem at /dev/xvda1 is mounted on /&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; on-line resizing required
+&lt;span style=&#34;color:#000&#34;&gt;old_desc_blocks&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 4, &lt;span style=&#34;color:#000&#34;&gt;new_desc_blocks&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt;
+The filesystem on /dev/xvda1 is now &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26214139&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;4k&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; blocks long.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重新配置完成後，可以看到 &lt;code&gt;/dev/xvda1&lt;/code&gt; 的空間已經變成 100G 了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/dev/xvda1       97G   36G   62G  37% /&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            992M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  992M   0% /dev
+tmpfs           200M   14M  187M   7% /run
+/dev/xvda1       97G   36G   62G  37% /
+tmpfs          1000M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 1000M   0% /dev/shm
+tmpfs           5.0M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  5.0M   0% /run/lock
+tmpfs          1000M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 1000M   0% /sys/fs/cgroup
+/dev/loop0       18M   18M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/amazon-ssm-agent/1068
+/dev/loop1       18M   18M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/amazon-ssm-agent/930
+/dev/loop2       92M   92M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/core/6531
+/dev/loop3       90M   90M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/core/6673
+/dev/loop4       91M   91M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/core/6405
+/dev/loop5       17M   17M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 100% /snap/amazon-ssm-agent/784
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1001
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1003
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1010
+tmpfs           200M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  200M   0% /run/user/1002
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://support.amimoto-ami.com/english/self-hosting-accounts/increasing-your-ec2-volume-size&#34;&gt;Increasing your EC2 Volume Size | Amimoto Help Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Volume 硬碟</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/volume/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/volume/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

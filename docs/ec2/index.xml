@@ -140,5 +140,50 @@ $ sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
       </description>
     </item>
     
+    <item>
+      <title>Docs: Auto Scaling</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Reserved Instance (RI) 保留實例</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/reserved-instance/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/reserved-instance/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Reserved Instance (RI) 是一個帳單計算方式的商品，而不是真的需要額外去購買 RI 的機器才能使用，而是購買了 RI 的帳單計算方式，在原有的 Instance 的計價可以用購買的 RI 去進行計價。&lt;/p&gt;
+&lt;p&gt;購買了 RI 費用雖然低很多，但表示至少需要付 1 年或 3 年的費用，且無法退費，所以當真的有需要長時間使用特定類型的 Instance，再去購買會比較好。&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ri-modifying.html&#34;&gt;修改Reserved Instance - Amazon Elastic Compute Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Volume 硬碟</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/volume/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/volume/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
   </channel>
 </rss>

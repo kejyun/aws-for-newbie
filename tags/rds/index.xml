@@ -5,7 +5,7 @@
     <description>Recent content in RDS on AWS 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 23 Apr 2021 08:50:29 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/rds/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,6 +16,165 @@
     
     
     <item>
+      <title>Docs: 實例限制</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/rds/instance-limit/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/rds/instance-limit/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;資料庫連線數量-rds-database-connections-limit&#34;&gt;資料庫連線數量 RDS Database Connections Limit&lt;/h2&gt;
+&lt;p&gt;RDS 連線數量是依照主機的記憶體大小限制最大數量，如果有需要更多的連線數量，則需要加開機器去增加連線數量。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/rds-max-connections.png&#34; alt=&#34;Max Connection Limit&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;AWS Aurora MySQL&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aurora MySQL max_connections limit 最大連線數量限制: GREATEST({log(DBInstanceClassMemory/805306368)*45},{log(DBInstanceClassMemory/8187281408)*1000})&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;實例類型 (Instance Class)&lt;/th&gt;
+&lt;th&gt;連線數量限制 (max_connections Default Value)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;db.t2.small&lt;/td&gt;
+&lt;td&gt;45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.t2.medium&lt;/td&gt;
+&lt;td&gt;90&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.large&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.xlarge&lt;/td&gt;
+&lt;td&gt;2000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.2xlarge&lt;/td&gt;
+&lt;td&gt;3000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.4xlarge&lt;/td&gt;
+&lt;td&gt;4000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.8xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.large&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.xlarge&lt;/td&gt;
+&lt;td&gt;2000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.2xlarge&lt;/td&gt;
+&lt;td&gt;3000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.4xlarge&lt;/td&gt;
+&lt;td&gt;4000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.8xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.16xlarge&lt;/td&gt;
+&lt;td&gt;6000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;AWS Aurora PostgreSQL&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aurora PostgreSQL max_connections limit 最大連線數量限制: LEAST({DBInstanceClassMemory/9531392},5000)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;實例類型 (Instance Class)&lt;/th&gt;
+&lt;th&gt;連線數量限制 (max_connections Default Value)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.large&lt;/td&gt;
+&lt;td&gt;1600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.xlarge&lt;/td&gt;
+&lt;td&gt;3200&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.2xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.4xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.8xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.16xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;參考資料&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://confluence.atlassian.com/bamkb/too-many-connections-on-aws-aurora-db-t2-medium-database-938020305.html&#34;&gt;Too many connections on AWS Aurora db.t2.medium database - Atlassian Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/AuroraMySQL.Managing.html#AuroraMySQL.Managing.MaxConnections&#34;&gt;管理 Amazon Aurora MySQL - Amazon Relational Database Service&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/599421/highest-value-of-max-connections-in-aws-rds-micro-instance&#34;&gt;mysql - Highest value of max_connections in AWS RDS micro instance - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dba.stackexchange.com/questions/41829/should-i-increase-max-connections-in-aws-rds-t1-micro-for-mysql&#34;&gt;Should I increase max_connections in AWS RDS t1-micro for MySQL? - Database Administrators Stack Exchange&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shazi.info/aws-rds-%E5%9C%A8%E5%90%84-instance-type-%E7%9A%84-max_connections-%E7%9A%84%E5%AE%9A%E7%BE%A9/&#34;&gt;AWS RDS 在各 instance type 的 max_connections 的定義 | Mr. 沙先生&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 情境問題</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/rds/scenario-question/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/rds/scenario-question/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;建立資料庫-snapshot-是否會影響正式機器運作&#34;&gt;建立資料庫 Snapshot 是否會影響正式機器運作？&lt;/h2&gt;
+&lt;p&gt;不會&lt;/p&gt;
+&lt;h2 id=&#34;建立-auto-scaling-replica-副本前置作業&#34;&gt;建立 Auto scaling replica 副本前置作業&lt;/h2&gt;
+&lt;p&gt;需要先手動建立自己的 replica 副本，讓 Auto scaling 自動偵測 DB cluster 的 replica reader 的數據（CPU %, DB connection），去做自動擴展&lt;/p&gt;
+&lt;p&gt;auto scaling replica 不會刪除手動建立的 replica&lt;/p&gt;
+&lt;h2 id=&#34;手動建立-replica-副本是否會影響正式機器運作&#34;&gt;手動建立 replica 副本是否會影響正式機器運作？&lt;/h2&gt;
+&lt;p&gt;不會，所以儘管正式 RDS 正在運作，隨時可以手動建立 replica，不會影響服務運行&lt;/p&gt;
+&lt;h2 id=&#34;使用-ab-test-測試-writer-及-reader是否-aws-會使用-writer-機器來當作讀取用&#34;&gt;使用 ab test 測試 writer 及 reader，是否 AWS 會使用 writer 機器來當作讀取用？&lt;/h2&gt;
+&lt;p&gt;不會&lt;/p&gt;
+&lt;h2 id=&#34;故障轉移failover使用方式&#34;&gt;故障轉移（Failover）使用方式&lt;/h2&gt;
+&lt;p&gt;執行故障轉移時，AWS 會針對 cluster 中所有機器的 Failover priority 優先順序，選擇 priority 中，目前運轉正常的機器，所以不管對哪一台機器做 Failover，則都會對目前所有機器（排除當前的 writer 機器）去做故障轉移。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html&#34;&gt;https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;在有-replica-reader-下刪除-writer-機器的狀況會怎樣&#34;&gt;在有 replica reader 下，刪除 writer 機器的狀況會怎樣？&lt;/h2&gt;
+&lt;p&gt;writer 機器會 Failover 到其他機器，然後再將機器刪除，但機器刪除時，會有短暫的連不到資料庫的狀態&lt;/p&gt;
+&lt;h2 id=&#34;autoscaling-開的機器與手動開的機器有何不同&#34;&gt;AutoScaling 開的機器與手動開的機器有何不同？&lt;/h2&gt;
+&lt;p&gt;Auto Scaling 開的機器會顯示「application-autoscaling-一串編碼」的名稱及 endpoint，Auto Scaling 不會關閉手動開的 replica 機器。&lt;/p&gt;
+&lt;h2 id=&#34;autoscaling-cloudwatch-是否需要設定&#34;&gt;AutoScaling Cloudwatch 是否需要設定？&lt;/h2&gt;
+&lt;p&gt;不需要，僅需要指定要偵測的數值，AWS 會盡量將數值維持在指定的數值內，當高於該數值就會自動開啟機器，低於該數值就會關閉機器。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: RDS</title>
       <link>https://aws-for-newbie.kejyun.com/docs/rds/</link>
       <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
@@ -24,10 +183,21 @@
       <description>
         
         
-        &lt;h2 id=&#34;todo&#34;&gt;TODO&lt;/h2&gt;
+        &lt;h2 id=&#34;aurora&#34;&gt;Aurora&lt;/h2&gt;
+&lt;h3 id=&#34;查詢-aurora-版本&#34;&gt;查詢 Aurora 版本&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;MySQL&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;AURORA_VERSION&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;@@&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;aurora_version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;PostgreSQL&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;AURORA_VERSION&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;參考資料&#34;&gt;參考資料&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling&#34;&gt;使用適合 Amazon RDS 資料庫執行個體的儲存體 - Amazon Relational Database Service&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD&#34;&gt;Amazon RDS 資料庫執行個體儲存體 - Amazon Relational Database Service&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/Aurora.Overview.html&#34;&gt;Amazon Aurora 概述 - Amazon Relational Database Service&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/cn/blogs/china/mycat-rds-mysql/&#34;&gt;利用Mycat中间件实现RDS MySQL的分库分表及读写分离功能 | 亚马逊AWS官方博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.html&#34;&gt;Amazon Aurora MySQL Database Engine Updates - Amazon Relational Database Service&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20Updates.html&#34;&gt;Amazon Aurora MySQL 2.0 Database Engine Updates - Amazon Relational Database Service&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

@@ -1,0 +1,147 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – 實例限制</title>
+    <link>https://aws-for-newbie.kejyun.com/tags/%E5%AF%A6%E4%BE%8B%E9%99%90%E5%88%B6/</link>
+    <description>Recent content in 實例限制 on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/%E5%AF%A6%E4%BE%8B%E9%99%90%E5%88%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 實例限制</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/rds/instance-limit/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/rds/instance-limit/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;資料庫連線數量-rds-database-connections-limit&#34;&gt;資料庫連線數量 RDS Database Connections Limit&lt;/h2&gt;
+&lt;p&gt;RDS 連線數量是依照主機的記憶體大小限制最大數量，如果有需要更多的連線數量，則需要加開機器去增加連線數量。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/rds-max-connections.png&#34; alt=&#34;Max Connection Limit&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;AWS Aurora MySQL&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aurora MySQL max_connections limit 最大連線數量限制: GREATEST({log(DBInstanceClassMemory/805306368)*45},{log(DBInstanceClassMemory/8187281408)*1000})&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;實例類型 (Instance Class)&lt;/th&gt;
+&lt;th&gt;連線數量限制 (max_connections Default Value)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;db.t2.small&lt;/td&gt;
+&lt;td&gt;45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.t2.medium&lt;/td&gt;
+&lt;td&gt;90&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.large&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.xlarge&lt;/td&gt;
+&lt;td&gt;2000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.2xlarge&lt;/td&gt;
+&lt;td&gt;3000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.4xlarge&lt;/td&gt;
+&lt;td&gt;4000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r3.8xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.large&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.xlarge&lt;/td&gt;
+&lt;td&gt;2000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.2xlarge&lt;/td&gt;
+&lt;td&gt;3000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.4xlarge&lt;/td&gt;
+&lt;td&gt;4000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.8xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.16xlarge&lt;/td&gt;
+&lt;td&gt;6000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;AWS Aurora PostgreSQL&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aurora PostgreSQL max_connections limit 最大連線數量限制: LEAST({DBInstanceClassMemory/9531392},5000)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;實例類型 (Instance Class)&lt;/th&gt;
+&lt;th&gt;連線數量限制 (max_connections Default Value)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.large&lt;/td&gt;
+&lt;td&gt;1600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.xlarge&lt;/td&gt;
+&lt;td&gt;3200&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.2xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.4xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.8xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;db.r4.16xlarge&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;參考資料&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://confluence.atlassian.com/bamkb/too-many-connections-on-aws-aurora-db-t2-medium-database-938020305.html&#34;&gt;Too many connections on AWS Aurora db.t2.medium database - Atlassian Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/AuroraMySQL.Managing.html#AuroraMySQL.Managing.MaxConnections&#34;&gt;管理 Amazon Aurora MySQL - Amazon Relational Database Service&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/599421/highest-value-of-max-connections-in-aws-rds-micro-instance&#34;&gt;mysql - Highest value of max_connections in AWS RDS micro instance - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dba.stackexchange.com/questions/41829/should-i-increase-max-connections-in-aws-rds-t1-micro-for-mysql&#34;&gt;Should I increase max_connections in AWS RDS t1-micro for MySQL? - Database Administrators Stack Exchange&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shazi.info/aws-rds-%E5%9C%A8%E5%90%84-instance-type-%E7%9A%84-max_connections-%E7%9A%84%E5%AE%9A%E7%BE%A9/&#34;&gt;AWS RDS 在各 instance type 的 max_connections 的定義 | Mr. 沙先生&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

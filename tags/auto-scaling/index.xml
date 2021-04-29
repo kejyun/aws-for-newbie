@@ -1,0 +1,116 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – Auto Scaling</title>
+    <link>https://aws-for-newbie.kejyun.com/tags/auto-scaling/</link>
+    <description>Recent content in Auto Scaling on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/auto-scaling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 建立</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/create/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/create/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;建立設定檔&#34;&gt;建立設定檔&lt;/h2&gt;
+&lt;p&gt;Auto Scaling / Launch Configurations / Create launch configuration&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-dashboard-create-btn.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇自己的-ami-映像檔&#34;&gt;選擇自己的 AMI 映像檔&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-launch-configuration.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇機器類型&#34;&gt;選擇機器類型&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-choose-instance-type.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定細節&#34;&gt;設定細節&lt;/h2&gt;
+&lt;p&gt;設定設定檔名稱
+若有選擇用 Spot Instance 的話，則需要設定最大出價價格（上方為目前的 spot instance 目前價格）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-configuration-detail.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定儲存空間&#34;&gt;設定儲存空間&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-add-storage.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定-security-group&#34;&gt;設定 Security Group&lt;/h2&gt;
+&lt;p&gt;通常會設定 22 (SSH)、80 (HTTP) 與 443 (HTTPS)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-configuration-security-group.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-auto-scaling-group&#34;&gt;建立 Auto Scaling Group&lt;/h2&gt;
+&lt;p&gt;Auto Scaling / Auto Scaling Groups / Create Auto Scaling group&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-auto-scaling-group-btn.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇設定檔&#34;&gt;選擇設定檔&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-select-configuration.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-group&#34;&gt;建立 Group&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-auto-scaling-group.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-scaling-條件&#34;&gt;建立 Scaling 條件&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-scaling-policles.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定-scaling-的機器在哪些-load-balancer-下面&#34;&gt;設定 Scaling 的機器在哪些 Load Balancer 下面&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-setting-belong-which-load-balancers.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 規則</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/rule/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/rule/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;placing-spot-instance-request&#34;&gt;Placing Spot instance request&lt;/h2&gt;
+&lt;p&gt;在做 Auto Scaling 時，機器會一直不段的開開關關，且顯示 &lt;code&gt;Placing Spot instance request&lt;/code&gt; 的訊息，這個是表示 &lt;strong&gt;Scaling Policies&lt;/strong&gt; 規則中，Scale-up 與 Scale-down 的規則相互有衝突導致，此時必須要檢查一下規則是否有設定錯誤。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Placing Spot instance request. Status Reason: Spot instance request: sir-bcpgayih has been cancelled. Group size decreased &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; waiting &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Spot instance request to be fulfilled.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;At 2017-10-26T07:53:21Z a monitor alarm CPU Too Low in state ALARM triggered policy CPU Too Low changing the desired capacity from &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; to 1. At 2017-10-26T07:54:04Z a monitor alarm CPU Credit Too Low in state ALARM triggered policy CPU Credit Too Low changing the desired capacity from &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; to 2. At 2017-10-26T07:54:14Z a difference between desired and actual capacity changing the desired capacity, increasing the capacity from &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; to 2.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;參考資料&#34;&gt;參考資料&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://forums.aws.amazon.com/thread.jspa?threadID=159903&#34;&gt;AWS Developer Forums: Some spot requests for Auto Scale group &amp;hellip;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Monitoring</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/monitoring/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/monitoring/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在監控 Auto Scaling Group 時會看不到想要監控的數據，而下面會顯示警告&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Group Metrics Collection is not enabled for the following Auto Scaling groups:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此時若想要看到此監控的數據，可以點選上方的 &lt;code&gt;Enable Group Metrics Collection&lt;/code&gt; 連結，即可啟用數據監控，在 Cloudwatch 那邊看到資料了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-monitoring.png&#34; alt=&#34;Auto Scaling Monitoring&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html&#34;&gt;Monitoring Your Auto Scaling Groups and Instances Using Amazon CloudWatch - Amazon EC2 Auto Scaling&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Auto Scaling</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

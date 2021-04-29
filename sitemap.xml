@@ -12,7 +12,22 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/ec2/volume/increasing-size/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/rds/instance-limit/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/docs/bill/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/create/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -27,11 +42,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://aws-for-newbie.kejyun.com/docs/rds/</loc>
-    <lastmod>2021-04-23T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/docs/ec2/instance/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -42,12 +52,37 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/rds/scenario-question/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/rule/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/rds/</loc>
+    <lastmod>2021-04-23T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/access-log/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/monitoring/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -62,7 +97,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/ec2/reserved-instance/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/target-group/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/docs/ec2/volume/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -78,6 +123,16 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://aws-for-newbie.kejyun.com/categories/access-log/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/auto-scaling/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/auto-scaling/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -157,6 +212,56 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/monitoring/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/monitoring/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/rds/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/rds/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/relational-database-service/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/relational-database-service/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/reserved-instance-ri-%E4%BF%9D%E7%95%99%E5%AF%A6%E4%BE%8B/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/reserved-instance-ri-%E4%BF%9D%E7%95%99%E5%AF%A6%E4%BE%8B/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/rule/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/rule/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/tags/ssl/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -192,12 +297,42 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/volume-%E7%A1%AC%E7%A2%9F/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/volume-%E7%A1%AC%E7%A2%9F/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/%E5%A2%9E%E5%8A%A0-ec2-%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/%E5%A2%9E%E5%8A%A0-ec2-%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/tags/%E5%AF%A6%E4%BE%8B/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://aws-for-newbie.kejyun.com/categories/%E5%AF%A6%E4%BE%8B/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/%E5%AF%A6%E4%BE%8B%E9%99%90%E5%88%B6/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/%E5%AF%A6%E4%BE%8B%E9%99%90%E5%88%B6/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -222,6 +357,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/%E6%83%85%E5%A2%83%E5%95%8F%E9%A1%8C/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/%E6%83%85%E5%A2%83%E5%95%8F%E9%A1%8C/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/tags/%E6%95%99%E5%AD%B8%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -242,6 +387,36 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/%E7%9B%A3%E6%8E%A7/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/%E7%9B%A3%E6%8E%A7/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/%E8%87%AA%E5%8B%95%E6%93%B4%E5%B1%95/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/%E8%87%AA%E5%8B%95%E6%93%B4%E5%B1%95/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/tags/%E8%A6%8F%E5%89%87/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://aws-for-newbie.kejyun.com/categories/%E8%A6%8F%E5%89%87/</loc>
+    <lastmod>2021-04-29T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://aws-for-newbie.kejyun.com/tags/%E8%B2%A0%E8%BC%89%E5%B9%B3%E8%A1%A1/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -249,26 +424,6 @@
   </url><url>
     <loc>https://aws-for-newbie.kejyun.com/categories/%E8%B2%A0%E8%BC%89%E5%B9%B3%E8%A1%A1/</loc>
     <lastmod>2021-04-29T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://aws-for-newbie.kejyun.com/tags/rds/</loc>
-    <lastmod>2021-04-23T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://aws-for-newbie.kejyun.com/categories/rds/</loc>
-    <lastmod>2021-04-23T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://aws-for-newbie.kejyun.com/tags/relational-database-service/</loc>
-    <lastmod>2021-04-23T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://aws-for-newbie.kejyun.com/categories/relational-database-service/</loc>
-    <lastmod>2021-04-23T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

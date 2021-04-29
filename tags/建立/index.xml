@@ -17,6 +17,46 @@
     
     <item>
       <title>Docs: 建立</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/create/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/create/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;建立設定檔&#34;&gt;建立設定檔&lt;/h2&gt;
+&lt;p&gt;Auto Scaling / Launch Configurations / Create launch configuration&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-dashboard-create-btn.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇自己的-ami-映像檔&#34;&gt;選擇自己的 AMI 映像檔&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-launch-configuration.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇機器類型&#34;&gt;選擇機器類型&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-choose-instance-type.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定細節&#34;&gt;設定細節&lt;/h2&gt;
+&lt;p&gt;設定設定檔名稱
+若有選擇用 Spot Instance 的話，則需要設定最大出價價格（上方為目前的 spot instance 目前價格）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-configuration-detail.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定儲存空間&#34;&gt;設定儲存空間&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-add-storage.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定-security-group&#34;&gt;設定 Security Group&lt;/h2&gt;
+&lt;p&gt;通常會設定 22 (SSH)、80 (HTTP) 與 443 (HTTPS)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-configuration-security-group.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-auto-scaling-group&#34;&gt;建立 Auto Scaling Group&lt;/h2&gt;
+&lt;p&gt;Auto Scaling / Auto Scaling Groups / Create Auto Scaling group&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-auto-scaling-group-btn.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇設定檔&#34;&gt;選擇設定檔&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-select-configuration.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-group&#34;&gt;建立 Group&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-auto-scaling-group.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立-scaling-條件&#34;&gt;建立 Scaling 條件&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-scaling-policles.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定-scaling-的機器在哪些-load-balancer-下面&#34;&gt;設定 Scaling 的機器在哪些 Load Balancer 下面&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-create-setting-belong-which-load-balancers.png&#34; alt=&#34;Images&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 建立</title>
       <link>https://aws-for-newbie.kejyun.com/docs/ec2/load-balancer/create/</link>
       <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
       

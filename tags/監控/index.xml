@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS 菜雞修煉場 – 監控</title>
+    <link>https://aws-for-newbie.kejyun.com/tags/%E7%9B%A3%E6%8E%A7/</link>
+    <description>Recent content in 監控 on AWS 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 29 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://aws-for-newbie.kejyun.com/tags/%E7%9B%A3%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Monitoring</title>
+      <link>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/monitoring/</link>
+      <pubDate>Thu, 29 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://aws-for-newbie.kejyun.com/docs/ec2/auto-scaling/monitoring/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在監控 Auto Scaling Group 時會看不到想要監控的數據，而下面會顯示警告&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Group Metrics Collection is not enabled for the following Auto Scaling groups:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此時若想要看到此監控的數據，可以點選上方的 &lt;code&gt;Enable Group Metrics Collection&lt;/code&gt; 連結，即可啟用數據監控，在 Cloudwatch 那邊看到資料了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/ec2-auto-scaling-monitoring.png&#34; alt=&#34;Auto Scaling Monitoring&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html&#34;&gt;Monitoring Your Auto Scaling Groups and Instances Using Amazon CloudWatch - Amazon EC2 Auto Scaling&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
